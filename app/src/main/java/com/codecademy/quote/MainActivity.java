@@ -3,6 +3,7 @@ package com.codecademy.quote;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // TODO 2-G: Show app icon in ActionBar
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.ic_unquote_icon);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setElevation(0);
@@ -52,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
         submitButton = findViewById(R.id.btn_main_submit_answer);
 
         // TODO 4-E: set onClickListener for each answer Button
+        answer0Button.setOnClickListener(v -> onAnswerSelected(0));
+        answer1Button.setOnClickListener(v -> onAnswerSelected(1));
+        answer2Button.setOnClickListener(v -> onAnswerSelected(2));
+        answer3Button.setOnClickListener(v -> onAnswerSelected(3));
+
 
         // TODO 5-A: set onClickListener for the submit answer Button
 
@@ -75,6 +82,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // TODO 4-A: onAnswerSelected(int answerSelected) {...}
+    @SuppressLint("SetTextI18n")
+    void onAnswerSelected(int answerSelected) {
+        Question currentQuestion = getCurrentQuestion();
+        currentQuestion.playerAnswer = answerSelected;
+//        ✔
+        answer0Button.setText(currentQuestion.answer0);
+        answer1Button.setText(currentQuestion.answer1);
+        answer2Button.setText(currentQuestion.answer2);
+        answer3Button.setText(currentQuestion.answer3);
+
+
+        switch (answerSelected){
+            case 0:
+                answer0Button.setText("✔" + answer0Button.getText());
+                break;
+            case 1:
+                answer1Button.setText("✔" + answer1Button.getText());
+                break;
+            case 2:
+                answer2Button.setText("✔" + answer2Button.getText());
+                break;
+            case 3:
+                answer3Button.setText("✔" + answer3Button.getText());
+                break;
+
+        }
+    }
 
     void onAnswerSubmission() {
         Question currentQuestion = getCurrentQuestion();
@@ -143,8 +177,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     Question chooseNewQuestion() {
-        int newQuestionIndex = generateRandomNumber(questions.size());
-        currentQuestionIndex = newQuestionIndex;
+        currentQuestionIndex = generateRandomNumber(questions.size());
         return questions.get(currentQuestionIndex);
     }
 
@@ -155,8 +188,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     Question getCurrentQuestion() {
-        Question currentQuestion = questions.get(currentQuestionIndex);
-        return currentQuestion;
+        return questions.get(currentQuestionIndex);
     }
 
     String getGameOverMessage(int totalCorrect, int totalQuestions) {
