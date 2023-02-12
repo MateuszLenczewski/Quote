@@ -103,29 +103,18 @@ public class MainActivity extends AppCompatActivity {
         questions = new ArrayList<>();
 
         // TODO 2-H: Provide actual drawables for each of these questions!
-        String questionString0 = "g Pretty good advice,\n" +
-                "and perhaps a scientist\n" +
-                "did say it… Who\n" +
-                "actually did?\n";
-        String questionString1 = "g Was honest Abe\n" +
-                "honestly quoted? Who\n" +
-                "authored this pithy bit\n" +
-                "of wisdom?";
-        String questionString2 = "Easy advice to read,\n" +
-                "difficult advice to\n" +
-                "follow — who actually\n";
-        String questionString3 = "Insanely inspiring,\n" +
-                "insanely incorrect\n" +
-                "(maybe). Who is the\n" +
-                "true source of this\n" +
-                "inspiration?\n";
-        String questionString4 = "A peace worth striving\n" +
-                "for — who actually\n" +
+        String questionString0 = "Pretty good advice, and perhaps a scientist " +
+                "did say it… Who actually did?";
+        String questionString1 = "Was honest Abe honestly quoted? Who " +
+                "authored this pithy bit of wisdom?";
+        String questionString2 = "Easy advice to read, difficult advice to " +
+                "follow — who actually";
+        String questionString3 = "Insanely inspiring, insanely incorrect" +
+                "(maybe). Who is the true source of this inspiration?";
+        String questionString4 = "A peace worth striving for — who actually " +
                 "reminded us of this?";
-        String questionString5 = "Unfortunately, true —\n" +
-                "but did Marilyn Monroe\n" +
-                "convey it or did\n" +
-                "someone else?\n";
+        String questionString5 = "Unfortunately, true — but did Marilyn Monroe " +
+                "convey it or did someone else?";
 
         Question question0 = new Question(R.drawable.img_quote_0, questionString0, "Albert Einstein", "Isaac Newton ", "Rita Mae Brown", "Rosalind Franklin", 2);
         Question question1 = new Question(R.drawable.img_quote_1, questionString1, "Edward Stieglitz", "Maya Angelou", "Abraham Lincoln ", "Ralph Waldo Emerson", 0);
