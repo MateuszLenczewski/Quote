@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">quote</string>
+    <string name="submit">submit</string>
+    <string name="questions_remaining">questions\nremaining</string>
+    <string name="quote_illustration">Quote illustration</string>
 </resources>
